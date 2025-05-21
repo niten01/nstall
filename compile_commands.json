@@ -1,0 +1,560 @@
+[
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_VERSION=\\\"1.0\\\" -DSPDLOG_COMPILED_LIB -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o CMakeFiles/nstall.dir/src/Main.cpp.o -c /home/niten/dev/nstall/src/Main.cpp",
+  "file": "/home/niten/dev/nstall/src/Main.cpp",
+  "output": "CMakeFiles/nstall.dir/src/Main.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_VERSION=\\\"1.0\\\" -DSPDLOG_COMPILED_LIB -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o CMakeFiles/nstall.dir/src/PayloadExtractor.cpp.o -c /home/niten/dev/nstall/src/PayloadExtractor.cpp",
+  "file": "/home/niten/dev/nstall/src/PayloadExtractor.cpp",
+  "output": "CMakeFiles/nstall.dir/src/PayloadExtractor.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build  -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -g -std=gnu90 -o _deps/miniz-build/CMakeFiles/miniz.dir/miniz.c.o -c /home/niten/dev/nstall/build/_deps/miniz-src/miniz.c",
+  "file": "/home/niten/dev/nstall/build/_deps/miniz-src/miniz.c",
+  "output": "_deps/miniz-build/CMakeFiles/miniz.dir/miniz.c.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build  -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -g -std=gnu90 -o _deps/miniz-build/CMakeFiles/miniz.dir/miniz_zip.c.o -c /home/niten/dev/nstall/build/_deps/miniz-src/miniz_zip.c",
+  "file": "/home/niten/dev/nstall/build/_deps/miniz-src/miniz_zip.c",
+  "output": "_deps/miniz-build/CMakeFiles/miniz.dir/miniz_zip.c.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build  -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -g -std=gnu90 -o _deps/miniz-build/CMakeFiles/miniz.dir/miniz_tinfl.c.o -c /home/niten/dev/nstall/build/_deps/miniz-src/miniz_tinfl.c",
+  "file": "/home/niten/dev/nstall/build/_deps/miniz-src/miniz_tinfl.c",
+  "output": "_deps/miniz-build/CMakeFiles/miniz.dir/miniz_tinfl.c.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build  -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -g -std=gnu90 -o _deps/miniz-build/CMakeFiles/miniz.dir/miniz_tdef.c.o -c /home/niten/dev/nstall/build/_deps/miniz-src/miniz_tdef.c",
+  "file": "/home/niten/dev/nstall/build/_deps/miniz-src/miniz_tdef.c",
+  "output": "_deps/miniz-build/CMakeFiles/miniz.dir/miniz_tdef.c.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/spdlog.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/spdlog.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/stdout_sinks.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/stdout_sinks.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/color_sinks.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/color_sinks.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/file_sinks.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/file_sinks.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/async.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/async.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/cfg.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/cfg.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DSPDLOG_COMPILED_LIB -DSPDLOG_FWRITE_UNLOCKED -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/spdlog-src/include -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++20 -o _deps/spdlog-build/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o -c /home/niten/dev/nstall/build/_deps/spdlog-src/src/bundled_fmtlib_format.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/spdlog-src/src/bundled_fmtlib_format.cpp",
+  "output": "_deps/spdlog-build/CMakeFiles/spdlog.dir/src/bundled_fmtlib_format.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/any.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/any.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/any.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/any.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/basic_types.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/basic_types.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/basic_types.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/basic_types.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/charset.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/charset.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/charset.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/charset.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/datetime.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/datetime.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/datetime.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/datetime.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/deploy.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/deploy.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/deploy.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/deploy.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/internationalization.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/internationalization.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/internationalization.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/internationalization.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/stdc++.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/stdc++.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/stdc++.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/stdc++.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/unicode_bidi.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/unicode_bidi.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/unicode_bidi.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/unicode_bidi.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/detail/platform_abstraction.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/detail/platform_abstraction.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/detail/platform_abstraction.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/detail/platform_abstraction.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/detail/platform_spec_posix.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/detail/platform_spec_posix.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/detail/platform_spec_posix.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/detail/platform_spec_posix.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/detail/platform_spec_windows.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/detail/platform_spec_windows.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/detail/platform_spec_windows.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/detail/platform_spec_windows.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/detail/posix/theme.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/detail/posix/theme.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/detail/posix/theme.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/detail/posix/theme.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/filesystem/filesystem.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/filesystem/filesystem.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/filesystem/filesystem.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/filesystem/filesystem.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/animation.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/animation.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/animation.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/animation.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/basis.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/basis.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/basis.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/basis.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/dragdrop.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/dragdrop.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/dragdrop.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/dragdrop.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/dragger.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/dragger.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/dragger.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/dragger.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/drawing.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/drawing.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/drawing.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/drawing.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/effects.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/effects.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/effects.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/effects.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/element.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/element.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/element.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/element.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/filebox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/filebox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/filebox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/filebox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/layout_utility.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/layout_utility.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/layout_utility.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/layout_utility.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/msgbox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/msgbox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/msgbox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/msgbox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/notifier.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/notifier.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/notifier.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/notifier.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/place.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/place.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/place.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/place.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/programming_interface.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/programming_interface.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/programming_interface.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/programming_interface.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/screen.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/screen.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/screen.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/screen.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/state_cursor.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/state_cursor.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/state_cursor.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/state_cursor.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/timer.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/timer.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/timer.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/timer.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/tooltip.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/tooltip.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/tooltip.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/tooltip.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/wvl.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/wvl.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/wvl.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/wvl.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/basic_window.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/basic_window.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/basic_window.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/basic_window.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/bedrock_pi.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/bedrock_pi.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/bedrock_pi.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/bedrock_pi.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/bedrock_posix.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/bedrock_posix.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/bedrock_posix.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/bedrock_posix.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/bedrock_windows.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/bedrock_windows.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/bedrock_windows.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/bedrock_windows.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/color_schemes.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/color_schemes.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/color_schemes.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/color_schemes.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/drawer.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/drawer.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/drawer.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/drawer.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/element_store.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/element_store.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/element_store.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/element_store.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/events_operation.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/events_operation.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/events_operation.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/events_operation.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/native_window_interface.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/native_window_interface.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/native_window_interface.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/native_window_interface.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/window_layout.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/window_layout.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/window_layout.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/window_layout.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/window_manager.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/window_manager.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/detail/window_manager.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/detail/window_manager.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/button.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/button.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/button.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/button.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/categorize.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/categorize.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/categorize.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/categorize.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/checkbox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/checkbox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/checkbox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/checkbox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/combox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/combox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/combox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/combox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/date_chooser.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/date_chooser.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/date_chooser.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/date_chooser.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/float_listbox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/float_listbox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/float_listbox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/float_listbox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/form.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/form.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/form.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/form.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/group.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/group.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/group.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/group.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/label.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/label.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/label.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/label.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/listbox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/listbox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/listbox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/listbox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/menu.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/menu.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/menu.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/menu.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/menubar.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/menubar.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/menubar.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/menubar.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/panel.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/panel.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/panel.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/panel.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/picture.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/picture.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/picture.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/picture.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/progress.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/progress.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/progress.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/progress.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/scroll.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/scroll.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/scroll.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/scroll.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/slider.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/slider.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/slider.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/slider.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/spinbox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/spinbox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/spinbox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/spinbox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/tabbar.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/tabbar.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/tabbar.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/tabbar.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/textbox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/textbox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/textbox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/textbox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/toolbar.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/toolbar.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/toolbar.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/toolbar.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/treebox.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/treebox.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/treebox.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/treebox.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/widget.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/widget.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/widget.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/widget.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/skeletons/content_view.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/skeletons/content_view.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/skeletons/content_view.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/skeletons/content_view.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/skeletons/text_editor.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/skeletons/text_editor.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/gui/widgets/skeletons/text_editor.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/gui/widgets/skeletons/text_editor.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/graphics.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/graphics.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/graphics.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/graphics.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/image.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/image.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/image.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/image.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/image_process_selector.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/image_process_selector.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/image_process_selector.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/image_process_selector.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/pixel_buffer.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/pixel_buffer.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/pixel_buffer.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/pixel_buffer.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/text_renderer.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/text_renderer.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/text_renderer.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/text_renderer.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/detail/image_process_provider.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/detail/image_process_provider.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/detail/image_process_provider.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/detail/image_process_provider.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/paint/detail/native_paint_interface.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/paint/detail/native_paint_interface.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/paint/detail/native_paint_interface.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/paint/detail/native_paint_interface.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/system/dataexch.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/system/dataexch.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/system/dataexch.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/system/dataexch.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/system/platform.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/system/platform.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/system/platform.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/system/platform.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/system/shared_wrapper.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/system/shared_wrapper.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/system/shared_wrapper.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/system/shared_wrapper.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/system/split_string.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/system/split_string.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/system/split_string.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/system/split_string.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/system/timepiece.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/system/timepiece.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/system/timepiece.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/system/timepiece.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/local/bin/clang++ -DNANA_IGNORE_CONF -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -isystem /usr/include/freetype2 -fsanitize=address,undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -g -std=c++17 -Wall -o _deps/nana-build/CMakeFiles/nana.dir/source/threads/pool.cpp.o -c /home/niten/dev/nstall/build/_deps/nana-src/source/threads/pool.cpp",
+  "file": "/home/niten/dev/nstall/build/_deps/nana-src/source/threads/pool.cpp",
+  "output": "_deps/nana-build/CMakeFiles/nana.dir/source/threads/pool.cpp.o"
+}
+]
