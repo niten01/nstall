@@ -1,3 +1,5 @@
+#include "nana/basic_types.hpp"
+#include "nana/gui/widgets/button.hpp"
 #include "nstall/Installer.hpp"
 #include "nstall/PayloadExtractor.hpp"
 #include <filesystem>
@@ -14,22 +16,14 @@ auto main(int argc, char** argv) -> int {
   spdlog::info("Starting nstallation");
 
   nstall::Installer installer{ argv[0] };
-  std::error_code FSEC;
-  std::filesystem::path binaryPath{ argv[0] };
-  std::filesystem::path tmpDestination{ binaryPath.parent_path() /
-                                        "nstall_tmp" };
 
+  installer.run();
 
-  std::filesystem::create_directories(tmpDestination, FSEC);
-  if (FSEC.default_error_condition()) {
-    spdlog::error("Failed to create temporary directory");
-  }
-
-  if (!std::filesystem::exists(binaryPath)) {
-    spdlog::error("argv mismatch");
-  }
-
-  nstall::PayloadExtractor extractor{ argv[0], tmpDestination };
+  // nana::form fm{ nana::API::make_center(600, 400) };
+  // fm.caption("nstall");
+  // nana::button b{ fm, nana::rectangle{ 0, 0, 200, 200 } };
+  // fm.show();
+  // nana::exec();
 
   return 0;
 }

@@ -7,8 +7,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include_directories(include)
 
-set(NSTALL_SOURCES src/Main.cpp
-src/PayloadExtractor.cpp)
+set(NSTALL_SOURCES 
+  src/Main.cpp
+  src/PayloadExtractor.cpp
+  src/Installer.cpp
+)
 
 add_executable(${PROJECT_NAME} ${NSTALL_SOURCES})
 target_compile_definitions(${PROJECT_NAME} PRIVATE -DNSTALL_VERSION="${PROJECT_VERSION}")
@@ -34,15 +37,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(spdlog)
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog)
 
-# fltk
-# message(STATUS "Fetching dependency: fltk")
-# FetchContent_Declare(
-#   fltk
-#   GIT_REPOSITORY https://github.com/fltk/fltk
-#   GIT_TAG aaabff439306215b3195dff5f2152fe6eadaa323) 
-# FetchContent_MakeAvailable(fltk)
-# target_link_libraries(${PROJECT_NAME} PRIVATE fltk)
-
 # nana
 message(STATUS "Fetching dependency: nana")
 FetchContent_Declare(
@@ -54,15 +48,3 @@ set_target_properties(nana PROPERTIES
     CXX_STANDARD 17
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE nana)
-
-# # wx
-# message(STATUS "Fetching dependency: wxWidgets")
-# set(wxBUILD_SHARED OFF)
-# set(wxBUILD_PRECOMP OFF)
-# set(wxBUILD_MONOLITHIC OFF)
-# FetchContent_Declare(
-#   wxWidgets
-#   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets
-#   GIT_TAG v3.2.8) 
-# FetchContent_MakeAvailable(wxWidgets)
-# target_link_libraries(${PROJECT_NAME} PRIVATE wx::base wx::core)

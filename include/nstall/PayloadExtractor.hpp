@@ -1,13 +1,19 @@
 #pragma once
+#include "nstall/Payload.hpp"
 #include <filesystem>
 #include <fstream>
 
 namespace nstall {
 
+struct PayloadExtractorException : public std::runtime_error {
+  using std::runtime_error::runtime_error;
+};
+
 class PayloadExtractor {
 public:
-  PayloadExtractor(const std::filesystem::path& argv0,
-                            const std::filesystem::path& destination);
+  explicit PayloadExtractor(const std::filesystem::path& argv0);
+
+  auto extract() -> std::unique_ptr<Payload>;
 
 private:
   std::ifstream m_Stream;
