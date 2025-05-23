@@ -4,7 +4,7 @@
 #include "nana/gui/widgets/panel.hpp"
 #include "nana/gui/widgets/textbox.hpp"
 #include "nana/threads/pool.hpp"
-#include "nstall/Payload.hpp"
+#include "nstall/Shared/Payload.hpp"
 #include <filesystem>
 #include <nana/gui.hpp>
 #include <nana/gui/widgets/button.hpp>

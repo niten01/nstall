@@ -3,6 +3,7 @@
 #include <bit>
 #include <cstddef>
 #include <ios>
+#include <sodium.h>
 
 using namespace nstall;
 
@@ -19,6 +20,11 @@ auto PayloadExtractor::extract() -> std::unique_ptr<Payload> {
     throw PayloadExtractorException{ "File too small" };
   }
 
-  m_Stream.seekg(static_cast<std::streamoff>(size - sizeof(Footer)));
-  Footer footer{};
+  size_t endOffset = size;
+  static constexpr size_t checksumSize = crypto_generichash_BYTES;
+  endOffset -= checksumSize;
+  std::array<std::byte, checksumSize> checksum{};
+  m_Stream.seekg(static_cast<std::streamoff>(size - endOffset));
+  m_Stream.read(reinterpret_cast<char*>(checksum.data()), checksumSize);
+  // Footer footer{};
 }
