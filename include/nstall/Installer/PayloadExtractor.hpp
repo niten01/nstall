@@ -1,5 +1,5 @@
 #pragma once
-#include "nstall/Payload.hpp"
+#include "nstall/Common/Payload.hpp"
 #include <filesystem>
 #include <fstream>
 
@@ -16,7 +16,7 @@ public:
   auto extract() -> std::unique_ptr<Payload>;
 
 private:
-  std::ifstream m_Stream;
+  std::ifstream stream_;
 };
 
 } // namespace nstall

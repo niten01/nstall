@@ -4,7 +4,7 @@
 #include "nana/gui/widgets/panel.hpp"
 #include "nana/gui/widgets/textbox.hpp"
 #include "nana/threads/pool.hpp"
-#include "nstall/Shared/Payload.hpp"
+#include "nstall/Common/Payload.hpp"
 #include <filesystem>
 #include <nana/gui.hpp>
 #include <nana/gui/widgets/button.hpp>
@@ -29,21 +29,21 @@ private:
   void onBackClick();
   void onNextClick();
 
-  nana::place m_MainLayout;
-  nana::label m_Title;
-  nana::label m_WelcomeLabel;
-  nana::button m_MainButton;
-  nana::label m_DestinationLabel;
-  nana::textbox m_DestinationTextBox;
-  nana::button m_DestinationButton;
-  nana::threads::pool m_ThreadPool;
+  nana::place mainLayout_;
+  nana::label title_;
+  nana::label welcomeLabel_;
+  nana::button mainButton_;
+  nana::label destinationLabel_;
+  nana::textbox destinationTextBox_;
+  nana::button destinationButton_;
+  nana::threads::pool threadPool_;
 
-  std::filesystem::path m_TmpDirectory;
-  std::filesystem::path m_Argv0;
+  std::filesystem::path tmpDirectory_;
+  std::filesystem::path argv0_;
 
-  std::unique_ptr<Payload> m_Payload;
+  std::unique_ptr<Payload> payload_;
 
-  static constexpr auto m_TmpDirectoryName{ "nstall_tmp" };
+  static constexpr auto tmpDirectoryName_{ "nstall_tmp" };
 };
 
 } // namespace nstall

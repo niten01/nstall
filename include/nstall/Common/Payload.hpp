@@ -15,8 +15,8 @@ public:
   [[nodiscard]] auto programName() const -> const std::string&;
 
 private:
-  std::vector<std::byte> m_Data;
-  std::string m_ProgramName;
+  std::vector<std::byte> data_;
+  std::string programName_;
 };
 
 } // namespace nstall

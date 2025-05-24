@@ -1,14 +1,13 @@
-#include "nstall/Installer.hpp"
+#include "nstall/Installer/Installer.hpp"
 #include "nana/basic_types.hpp"
 #include "nana/gui/basis.hpp"
 #include "nana/gui/widgets/button.hpp"
-#include "nstall/Footer.hpp"
-#include "nstall/PayloadExtractor.hpp"
+#include "nstall/Installer/PayloadExtractor.hpp"
+#include "nstall/Common/Footer.hpp"
 #include <filesystem>
 #include <nana/gui/place.hpp>
 #include <nana/gui/programming_interface.hpp>
 #include <nana/gui/widgets/label.hpp>
-#include <spdlog/fmt/bundled/format.h>
 #include <utility>
 
 using namespace nstall;
@@ -17,83 +16,88 @@ namespace fs = std::filesystem;
 Installer::Installer(fs::path argv0)
     : nana::form{ nana::API::make_center(300, 300),
                   nana::appear::decorate<nana::appear::taskbar>{} },
-      m_Argv0{ std::move(argv0) } {
-  m_TmpDirectory = fs::temp_directory_path() / m_TmpDirectoryName;
+      argv0_{ std::move(argv0) } {
+  tmpDirectory_ = fs::temp_directory_path() / tmpDirectoryName_;
 }
 
 void Installer::createForm() {
-  m_MainLayout.bind(*this);
+  mainLayout_.bind(*this);
 
-  m_MainLayout.div(fmt::format(R"(
-    <vertical
-      <vertical fit
-        <title> 
-        <welcome>
-      >
-      <vertical
-        <>
-        <vertical weight={destinationHeightPx}
-          <destination_label>
-          <
-            <destination_textbox>
-            <destination_btn weight={destinationHeightPx}>
-          >
-        >
-        <>
-      >
-      <weight=10%
-        <>
-        <main_btn weight=50%>
-        <>
-      >
+  mainLayout_.div(R"(
+  <vertical
+    <vertical fit
+      <title> 
+      <welcome>
     >
-  )",
-                               fmt::arg("destinationHeightPx", 50)));
+    <vertical
+      <>
+      <vertical weight=50
+        <destination_label>
+        <
+          <destination_textbox>
+          <destination_btn weight=50>
+        >
+      >
+      <>
+    >
+    <weight=10%
+      <>
+      <main_btn weight=50%>
+      <>
+    >
+  >
+  )");
 
-  m_Title.create(*this);
-  m_Title.text_align(nana::align::center);
-  m_Title.caption("Program name");
-  m_Title.typeface(
+  title_.create(*this);
+  title_.text_align(nana::align::center);
+  title_.typeface(nana::paint::font{
+      "Consolas", 20, nana::paint::font::font_style{ 500 } });
+  title_.caption("Program name");
+  mainLayout_["title"] << title_;
+
+  welcomeLabel_.create(*this);
+  welcomeLabel_.caption();
+  welcomeLabel_.typeface(
       nana::paint::font{ "", 20, nana::paint::font::font_style{ 500 } });
-  m_MainLayout["title"] << m_Title;
+  mainLayout_["welcome"] << welcomeLabel_;
 
-  m_WelcomeLabel.create(*this);
-  m_WelcomeLabel.caption();
-  m_WelcomeLabel.typeface(
-      nana::paint::font{ "", 20, nana::paint::font::font_style{ 500 } });
-  m_MainLayout["welcome"] << m_WelcomeLabel;
+  destinationLabel_.create(*this);
+  destinationLabel_.caption("Install to:");
+  destinationTextBox_.create(*this);
+  fs::path defaultPath{ fs::current_path().root_directory() /
+                        payload_->programName() };
+  destinationTextBox_.editable(true).multi_lines(false).reset(
+      defaultPath.string());
+  destinationButton_.create(*this);
+  destinationButton_.caption("...");
+  mainLayout_["destination_label"] << destinationLabel_;
+  mainLayout_["destination_textbox"] << destinationTextBox_;
+  mainLayout_["destination_btn"] << destinationButton_;
 
-  m_DestinationLabel.create(*this);
-  m_DestinationLabel.caption("Install to:");
-  m_DestinationTextBox.create(*this);
-  m_DestinationTextBox.editable(true).multi_lines(false);
-  m_DestinationButton.create(*this);
-  m_DestinationButton.caption("...");
-  m_MainLayout["destination_label"] << m_DestinationLabel;
-  m_MainLayout["destination_textbox"] << m_DestinationTextBox;
-  m_MainLayout["destination_btn"] << m_DestinationButton;
+  mainButton_.create(*this);
+  mainButton_.caption("Install");
+  mainLayout_["main_btn"] << mainButton_;
 
-  m_MainButton.create(*this);
-  m_MainButton.caption("Install");
-  m_MainLayout["main_btn"] << m_MainButton;
+  mainLayout_.collocate();
 
-  m_MainLayout.collocate();
-
+  typeface(nana::paint::font{ "Consolas", 12 });
   caption("Installer");
   show();
 }
 
 void Installer::run() {
-    PayloadExtractor extractor{ m_Argv0};
-    m_Payload = extractor.extract();
-    createForm();
+  PayloadExtractor extractor{ argv0_ };
+  payload_ = extractor.extract();
+  createForm();
 
   try {
-    fs::create_directories(m_TmpDirectory);
+    fs::create_directories(tmpDirectory_);
 
     nana::exec();
   } catch (const fs::filesystem_error& e) {
-    throw InstallerException{ fmt::format(
-        "OS error on installer initialization:\n   {}", e.what()) };
+    throw InstallerException{
+      "OS error on installer initialization:\n   " +
+      std::string{ e.what() }
+    };
   }
 }

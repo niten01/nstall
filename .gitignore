@@ -1,3 +1,6 @@
 build
 *.profraw
 .cache
+
+# testing binaries
+*_Installer

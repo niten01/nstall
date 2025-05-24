@@ -1,5 +1,5 @@
-#include "nstall/PayloadExtractor.hpp"
-#include "nstall/Footer.hpp"
+#include "nstall/Installer/PayloadExtractor.hpp"
+#include "nstall/Common/Footer.hpp"
 #include <bit>
 #include <cstddef>
 #include <ios>
@@ -8,14 +8,14 @@
 using namespace nstall;
 
 PayloadExtractor::PayloadExtractor(const std::filesystem::path& argv0)
-    : m_Stream{ argv0, std::ios::binary | std::ios::ate } {
-  if (!m_Stream.good()) {
+    : stream_{ argv0, std::ios::binary | std::ios::ate } {
+  if (!stream_.good()) {
     throw PayloadExtractorException{ "Failed to open file" };
   }
 }
 
 auto PayloadExtractor::extract() -> std::unique_ptr<Payload> {
-  size_t size = m_Stream.tellg();
+  size_t size = stream_.tellg();
   if (size < sizeof(Footer)) {
     throw PayloadExtractorException{ "File too small" };
   }
@@ -24,7 +24,7 @@ auto PayloadExtractor::extract() -> std::unique_ptr<Payload> {
   static constexpr size_t checksumSize = crypto_generichash_BYTES;
   endOffset -= checksumSize;
   std::array<std::byte, checksumSize> checksum{};
-  m_Stream.seekg(static_cast<std::streamoff>(size - endOffset));
-  m_Stream.read(reinterpret_cast<char*>(checksum.data()), checksumSize);
+  stream_.seekg(static_cast<std::streamoff>(size - endOffset));
+  stream_.read(reinterpret_cast<char*>(checksum.data()), checksumSize);
   // Footer footer{};
 }

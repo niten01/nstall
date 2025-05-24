@@ -21,9 +21,12 @@ cp -f build/compile_commands.json .
 
 if [ $# -ne 0 ] ; then
 	echo -e "$HI--------------------------------------$NC\n"
-  if [ "$1" == "run" ]; then
+  if [ "$1" == "constructor" ]; then
     set -eux
-    ./build/nstall
+    ./build/nstall-constructor
+  elif [ "$1" == "installer" ]; then
+    set -eux
+    ./build/nstall-installer
   elif [ "$1" == "test" ]; then
     pushd build/tests > /dev/null
     rm -rf coverage
