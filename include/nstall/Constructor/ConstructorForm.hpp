@@ -14,9 +14,9 @@ struct ConstructorException : public std::runtime_error {
   using std::runtime_error::runtime_error;
 };
 
-struct Constructor : public nana::form {
+struct ConstructorForm : public nana::form {
 public:
-  explicit Constructor(std::filesystem::path resourcesPath);
+  explicit ConstructorForm(std::filesystem::path resourcesPath);
 
   void run();
 

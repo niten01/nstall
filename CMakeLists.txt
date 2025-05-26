@@ -9,6 +9,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(BUILD_SHARED_LIBS OFF)
+option(NSTALL_TEST_BUILD "Build with automatic gui testing" OFF)
+
+if(NSTALL_TEST_BUILD)
+  set(NANA_CMAKE_AUTOMATIC_GUI_TESTING ON)
+endif()
+
 
 include_directories(include)
 
@@ -21,7 +27,7 @@ set(INSTALLER_SOURCES
     src/Installer/InstallerMain.cpp src/Installer/PayloadExtractor.cpp
     src/Installer/Installer.cpp)
 set(CONSTRUCTOR_SOURCES
-    src/Consturctor/ConstructorMain.cpp src/Consturctor/Constructor.cpp
+  src/Consturctor/ConstructorMain.cpp src/Consturctor/ConstructorForm.cpp
     src/Consturctor/PayloadPacker.cpp)
   set(SHARED_SOURCES src/Common/Payload.cpp)
 

@@ -38,7 +38,11 @@ void writeChunked(std::fstream& dst, std::ifstream& src, size_t len) {
   while (len) {
     auto toRead =
         static_cast<std::streamsize>(std::min(len, buffer.size()));
-    src.read(reinterpret_cast<char*>(buffer.data()), toRead);  // NOLINT
+    src.read(reinterpret_cast<char*>(buffer.data()), toRead); // NOLINT
+    std::cerr << std::to_integer<char>(buffer[0])
+              << std::to_integer<char>(buffer[1])
+              << std::to_integer<char>(buffer[2]) << '\n';
+    len = 0;
     dst.write(reinterpret_cast<char*>(buffer.data()), toRead); // NOLINT
     len -= toRead;
   }
@@ -127,6 +131,7 @@ void PayloadPacker::createOffsettedZip() {
   handleMzError(zip, status);
 
   zipSize_ = fs::file_size(targetPath_) - carrierSize_;
+  fs::permissions(targetPath_, fs::perms::all); // maybe rwxr-xr-x?
 }
 
 void PayloadPacker::injectExecutable() {

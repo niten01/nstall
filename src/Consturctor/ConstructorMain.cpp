@@ -1,4 +1,4 @@
-#include "nstall/Constructor/Constructor.hpp"
+#include "nstall/Constructor/ConstructorForm.hpp"
 #include <filesystem>
 #include <nana/gui.hpp>
 
@@ -7,9 +7,8 @@ auto main(int /*argc*/, char const* argv[]) -> int {
   auto resourcesDir = argv0.parent_path() / "resources";
 
   try {
-    nstall::Constructor constructor{ resourcesDir };
+    nstall::ConstructorForm constructor{ resourcesDir };
     constructor.run();
-    nana::exec();
   } catch (const nstall::ConstructorException& e) {
     nana::msgbox err{ "Error" };
     err.icon(nana::msgbox::icon_error);

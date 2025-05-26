@@ -1,4 +1,4 @@
-#include "nstall/Constructor/Constructor.hpp"
+#include "nstall/Constructor/ConstructorForm.hpp"
 #include "nana/basic_types.hpp"
 #include "nana/gui/filebox.hpp"
 #include "nana/gui/programming_interface.hpp"
@@ -33,7 +33,7 @@ auto findFileByStem(const fs::path& dir, const std::string& name)
 
 } // namespace
 
-Constructor::Constructor(std::filesystem::path resourcesPath)
+ConstructorForm::ConstructorForm(std::filesystem::path resourcesPath)
     : nana::form{ nana::API::make_center(400, 300) },
       resourcesPath_{ std::move(resourcesPath) } {
   if (!fs::exists(resourcesPath_) || !fs::is_directory(resourcesPath_)) {
@@ -43,10 +43,11 @@ Constructor::Constructor(std::filesystem::path resourcesPath)
   createForm();
 }
 
-void Constructor::run() {
+void ConstructorForm::run() {
+  nana::exec();
 }
 
-void Constructor::createForm() {
+void ConstructorForm::createForm() {
   mainLayout_.bind(*this);
 
   mainLayout_.div(R"(
@@ -129,7 +130,7 @@ void Constructor::createForm() {
   setupCallbacks();
 }
 
-void nstall::Constructor::validateFields() {
+void nstall::ConstructorForm::validateFields() {
   if (programNameTextBox_.text().empty()) {
     throw ConstructorException{ "Program name required" };
   }
@@ -151,15 +152,15 @@ void nstall::Constructor::validateFields() {
   }
 }
 
-void Constructor::setupCallbacks() {
+void ConstructorForm::setupCallbacks() {
   directoryButton_.events().click([this] {
     onDirectoryClick();
   });
-  mainButton_.events().click(
-      nana::threads::pool_push(pool_, *this, &Constructor::onMainClick));
+  mainButton_.events().click(nana::threads::pool_push(
+      pool_, *this, &ConstructorForm::onMainClick));
 }
 
-void Constructor::onDirectoryClick() {
+void ConstructorForm::onDirectoryClick() {
   nana::folderbox fb{ *this, fs::current_path(),
                       "Select program shipping directory" };
   fb.allow_multi_select(false);
@@ -174,30 +175,33 @@ void Constructor::onDirectoryClick() {
   directoryTextBox_.reset(paths[0].string(), true);
 }
 
-void Constructor::onMainClick() {
+void ConstructorForm::onMainClick() {
+  std::string programName{ programNameTextBox_.text() };
+  std::string programNameSafe{};
+  std::ranges::replace_copy(
+      programName, std::back_inserter(programNameSafe), ' ', '_');
+  fs::path directory{ directoryTextBox_.text() };
+
+  nana::filebox fb{ *this, false };
+  fb.init_file(fs::current_path() /
+               (programNameSafe + "_Installer" + NSTALL_EXE_EXTENSION));
+  fb.add_filter("Executable", "*." NSTALL_EXE_EXTENSION);
+  fb.allow_multi_select(false);
+  auto paths{ fb.show() };
+  if (paths.empty()) {
+    return;
+  }
+
+  assert(paths.size() == 1);
+  const auto& targetPath{ paths[0] };
+
   auto ogTitle{ title_.caption() };
   enableAll(false);
   mainLayout_.field_display("progress", true);
   mainLayout_.collocate();
 
-  fs::path targetPath{};
   try {
-    // validateFields();
-
-    std::string programName{ programNameTextBox_.text() };
-    std::string programNameSafe{};
-    std::ranges::replace_copy(
-        programName, std::back_inserter(programNameSafe), ' ', '_');
-    fs::path directory{ directoryTextBox_.text() };
-
-    nana::filebox fb{ *this, false };
-    fb.init_file(fs::current_path() /
-                 (programNameSafe + "_Installer" + NSTALL_EXE_EXTENSION));
-    fb.add_filter("Executable", "*." NSTALL_EXE_EXTENSION);
-    fb.allow_multi_select(false);
-    auto paths{ fb.show() };
-    assert(paths.size() == 1);
-    targetPath = paths[0];
+    validateFields();
     auto carrierPathOpt{ findFileByStem(resourcesPath_,
                                         NSTALL_CARRIER_NAME) };
     if (!carrierPathOpt) {
@@ -245,7 +249,7 @@ void Constructor::onMainClick() {
   mb.show();
 }
 
-void Constructor::enableAll(bool enable) {
+void ConstructorForm::enableAll(bool enable) {
   programNameTextBox_.enabled(enable);
   directoryTextBox_.enabled(enable);
   directoryButton_.enabled(enable);
