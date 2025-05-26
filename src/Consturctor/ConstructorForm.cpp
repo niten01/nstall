@@ -1,5 +1,6 @@
 #include "nstall/Constructor/ConstructorForm.hpp"
 #include "nana/basic_types.hpp"
+#include "nana/gui/basis.hpp"
 #include "nana/gui/filebox.hpp"
 #include "nana/gui/programming_interface.hpp"
 #include "nana/paint/graphics.hpp"
@@ -34,7 +35,9 @@ auto findFileByStem(const fs::path& dir, const std::string& name)
 } // namespace
 
 ConstructorForm::ConstructorForm(std::filesystem::path resourcesPath)
-    : nana::form{ nana::API::make_center(400, 300) },
+    : nana::form{ nana::API::make_center(400, 300),
+                  nana::appearance{ true, false, true, false, true, false,
+                                    false } },
       resourcesPath_{ std::move(resourcesPath) } {
   if (!fs::exists(resourcesPath_) || !fs::is_directory(resourcesPath_)) {
     throw ConstructorException{ resourcesPath_.string() +

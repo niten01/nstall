@@ -39,10 +39,9 @@ void writeChunked(std::fstream& dst, std::ifstream& src, size_t len) {
     auto toRead =
         static_cast<std::streamsize>(std::min(len, buffer.size()));
     src.read(reinterpret_cast<char*>(buffer.data()), toRead); // NOLINT
-    std::cerr << std::to_integer<char>(buffer[0])
-              << std::to_integer<char>(buffer[1])
-              << std::to_integer<char>(buffer[2]) << '\n';
-    len = 0;
+    // std::cerr << std::to_integer<char>(buffer[0])
+    //           << std::to_integer<char>(buffer[1])
+    //           << std::to_integer<char>(buffer[2]) << '\n';
     dst.write(reinterpret_cast<char*>(buffer.data()), toRead); // NOLINT
     len -= toRead;
   }
@@ -136,7 +135,7 @@ void PayloadPacker::createOffsettedZip() {
 
 void PayloadPacker::injectExecutable() {
   progressCallback_("Packing...", 1.0F);
-  targetStream_.open(targetPath_, std::ios::binary | std::ios::app);
+  targetStream_.open(targetPath_, std::ios::binary | std::ios::in | std::ios::out);
   std::ifstream carrierStream{ carrierPath_, std::ios::binary };
   if (!targetStream_ || !carrierStream) {
     throw PayloadPackerException{ "Failed to open binaries" };
