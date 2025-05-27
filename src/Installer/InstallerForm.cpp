@@ -1,10 +1,10 @@
-#include "nstall/Installer/Installer.hpp"
+#include "nstall/Installer/InstallerForm.hpp"
 #include "nana/basic_types.hpp"
 #include "nana/gui/basis.hpp"
 #include "nana/gui/widgets/button.hpp"
 #include "nstall/Installer/PayloadExtractor.hpp"
-#include "nstall/Common/Footer.hpp"
 #include <filesystem>
+#include <memory>
 #include <nana/gui/place.hpp>
 #include <nana/gui/programming_interface.hpp>
 #include <nana/gui/widgets/label.hpp>
@@ -13,14 +13,22 @@
 using namespace nstall;
 namespace fs = std::filesystem;
 
-Installer::Installer(fs::path argv0)
+InstallerForm::InstallerForm(fs::path argv0)
     : nana::form{ nana::API::make_center(300, 300),
                   nana::appear::decorate<nana::appear::taskbar>{} },
       argv0_{ std::move(argv0) } {
   tmpDirectory_ = fs::temp_directory_path() / tmpDirectoryName_;
+
+  try {
+    extractor_ = std::make_unique<PayloadExtractor>(argv0_);
+    metaInfo_  = extractor_->verify();
+  } catch (const PayloadExtractorException& e) {
+    throw InstallerFormException{ e.what() };
+  }
+  createForm();
 }
 
-void Installer::createForm() {
+void InstallerForm::createForm() {
   mainLayout_.bind(*this);
 
   mainLayout_.div(R"(
@@ -65,7 +73,7 @@ void Installer::createForm() {
   destinationLabel_.caption("Install to:");
   destinationTextBox_.create(*this);
   fs::path defaultPath{ fs::current_path().root_directory() /
-                        payload_->programName() };
+                        metaInfo_->programName() };
   destinationTextBox_.editable(true).multi_lines(false).reset(
       defaultPath.string());
   destinationButton_.create(*this);
@@ -85,19 +93,6 @@ void Installer::createForm() {
   show();
 }
 
-void Installer::run() {
-  PayloadExtractor extractor{ argv0_ };
-  payload_ = extractor.extract();
-  createForm();
-
-  try {
-    fs::create_directories(tmpDirectory_);
-
-    nana::exec();
-  } catch (const fs::filesystem_error& e) {
-    throw InstallerException{
-      "OS error on installer initialization:\n   " +
-      std::string{ e.what() }
-    };
-  }
+void InstallerForm::run() {
+  nana::exec();
 }

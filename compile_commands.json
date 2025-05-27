@@ -1,45 +1,51 @@
 [
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-common.dir/src/Common/Payload.cpp.o -c /home/niten/dev/nstall/src/Common/Payload.cpp",
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-common.dir/src/Common/Payload.cpp.o -c /home/niten/dev/nstall/src/Common/Payload.cpp",
   "file": "/home/niten/dev/nstall/src/Common/Payload.cpp",
   "output": "CMakeFiles/nstall-common.dir/src/Common/Payload.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-installer.dir/src/Installer/InstallerMain.cpp.o -c /home/niten/dev/nstall/src/Installer/InstallerMain.cpp",
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-installer.dir/src/Installer/InstallerMain.cpp.o -c /home/niten/dev/nstall/src/Installer/InstallerMain.cpp",
   "file": "/home/niten/dev/nstall/src/Installer/InstallerMain.cpp",
   "output": "CMakeFiles/nstall-installer.dir/src/Installer/InstallerMain.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-installer.dir/src/Installer/PayloadExtractor.cpp.o -c /home/niten/dev/nstall/src/Installer/PayloadExtractor.cpp",
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-installer.dir/src/Installer/PayloadExtractor.cpp.o -c /home/niten/dev/nstall/src/Installer/PayloadExtractor.cpp",
   "file": "/home/niten/dev/nstall/src/Installer/PayloadExtractor.cpp",
   "output": "CMakeFiles/nstall-installer.dir/src/Installer/PayloadExtractor.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-installer.dir/src/Installer/Installer.cpp.o -c /home/niten/dev/nstall/src/Installer/Installer.cpp",
-  "file": "/home/niten/dev/nstall/src/Installer/Installer.cpp",
-  "output": "CMakeFiles/nstall-installer.dir/src/Installer/Installer.cpp.o"
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-installer.dir/src/Installer/InstallerForm.cpp.o -c /home/niten/dev/nstall/src/Installer/InstallerForm.cpp",
+  "file": "/home/niten/dev/nstall/src/Installer/InstallerForm.cpp",
+  "output": "CMakeFiles/nstall-installer.dir/src/Installer/InstallerForm.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Consturctor/ConstructorMain.cpp.o -c /home/niten/dev/nstall/src/Consturctor/ConstructorMain.cpp",
-  "file": "/home/niten/dev/nstall/src/Consturctor/ConstructorMain.cpp",
-  "output": "CMakeFiles/nstall-constructor.dir/src/Consturctor/ConstructorMain.cpp.o"
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Constructor/ConstructorMain.cpp.o -c /home/niten/dev/nstall/src/Constructor/ConstructorMain.cpp",
+  "file": "/home/niten/dev/nstall/src/Constructor/ConstructorMain.cpp",
+  "output": "CMakeFiles/nstall-constructor.dir/src/Constructor/ConstructorMain.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Consturctor/ConstructorForm.cpp.o -c /home/niten/dev/nstall/src/Consturctor/ConstructorForm.cpp",
-  "file": "/home/niten/dev/nstall/src/Consturctor/ConstructorForm.cpp",
-  "output": "CMakeFiles/nstall-constructor.dir/src/Consturctor/ConstructorForm.cpp.o"
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Constructor/ConstructorForm.cpp.o -c /home/niten/dev/nstall/src/Constructor/ConstructorForm.cpp",
+  "file": "/home/niten/dev/nstall/src/Constructor/ConstructorForm.cpp",
+  "output": "CMakeFiles/nstall-constructor.dir/src/Constructor/ConstructorForm.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
-  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Consturctor/PayloadPacker.cpp.o -c /home/niten/dev/nstall/src/Consturctor/PayloadPacker.cpp",
-  "file": "/home/niten/dev/nstall/src/Consturctor/PayloadPacker.cpp",
-  "output": "CMakeFiles/nstall-constructor.dir/src/Consturctor/PayloadPacker.cpp.o"
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Constructor/ConstructorCLI.cpp.o -c /home/niten/dev/nstall/src/Constructor/ConstructorCLI.cpp",
+  "file": "/home/niten/dev/nstall/src/Constructor/ConstructorCLI.cpp",
+  "output": "CMakeFiles/nstall-constructor.dir/src/Constructor/ConstructorCLI.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/bin/clang++ -DMINIZ_STATIC_DEFINE -DNSTALL_CARRIER_NAME=\\\"nstall-carrier\\\" -DNSTALL_EXE_EXTENSION=\\\"\\\" -DNSTALL_TEST_BUILD -DNSTALL_VERSION=\\\"0.1\\\" -DSODIUM_STATIC -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build -I/home/niten/dev/nstall/build/_deps/cxxopts-src/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -I/home/niten/dev/nstall/build/_deps/nana-src/include -I/home/niten/dev/nstall/build/_deps/sodium-src/libsodium/src/libsodium/include -isystem /usr/include/freetype2 -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o CMakeFiles/nstall-constructor.dir/src/Constructor/PayloadPacker.cpp.o -c /home/niten/dev/nstall/src/Constructor/PayloadPacker.cpp",
+  "file": "/home/niten/dev/nstall/src/Constructor/PayloadPacker.cpp",
+  "output": "CMakeFiles/nstall-constructor.dir/src/Constructor/PayloadPacker.cpp.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",
@@ -64,6 +70,18 @@
   "command": "/usr/bin/clang -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/miniz-src -I/home/niten/dev/nstall/build/_deps/miniz-build  -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -std=gnu90 -o _deps/miniz-build/CMakeFiles/miniz.dir/miniz_tdef.c.o -c /home/niten/dev/nstall/build/_deps/miniz-src/miniz_tdef.c",
   "file": "/home/niten/dev/nstall/build/_deps/miniz-src/miniz_tdef.c",
   "output": "_deps/miniz-build/CMakeFiles/miniz.dir/miniz_tdef.c.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/bin/clang++ -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o _deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.o -c /home/niten/dev/nstall/build/_deps/fmt-src/src/format.cc",
+  "file": "/home/niten/dev/nstall/build/_deps/fmt-src/src/format.cc",
+  "output": "_deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.o"
+},
+{
+  "directory": "/home/niten/dev/nstall/build",
+  "command": "/usr/bin/clang++ -I/home/niten/dev/nstall/include -I/home/niten/dev/nstall/build/_deps/fmt-src/include -g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping -std=c++20 -o _deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.o -c /home/niten/dev/nstall/build/_deps/fmt-src/src/os.cc",
+  "file": "/home/niten/dev/nstall/build/_deps/fmt-src/src/os.cc",
+  "output": "_deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.o"
 },
 {
   "directory": "/home/niten/dev/nstall/build",

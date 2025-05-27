@@ -1,22 +1,19 @@
-#include "nana/basic_types.hpp"
-#include "nana/gui/widgets/button.hpp"
-#include "nstall/Installer/Installer.hpp"
+#include "nstall/Installer/InstallerForm.hpp"
 #include <filesystem>
-#include <nana/gui.hpp>
-#include <nana/gui/basis.hpp>
-#include <nana/gui/programming_interface.hpp>
-#include <system_error>
+#include <cxxopts.hpp>
 
 auto main(int argc, char** argv) -> int {
-  nstall::Installer installer{ argv[0] };
 
-  installer.run();
-
-  // nana::form fm{ nana::API::make_center(600, 400) };
-  // fm.caption("nstall");
-  // nana::button b{ fm, nana::rectangle{ 0, 0, 200, 200 } };
-  // fm.show();
-  // nana::exec();
+  try {
+    nstall::InstallerForm installer{ argv[0] };
+    installer.run();
+  } catch (const nstall::InstallerFormException& e) {
+    nana::msgbox err{ "Error" };
+    err.icon(nana::msgbox::icon_error);
+    err << e.what();
+    err();
+    return 1;
+  }
 
   return 0;
 }

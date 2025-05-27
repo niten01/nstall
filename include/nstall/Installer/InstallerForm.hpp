@@ -4,22 +4,24 @@
 #include "nana/gui/widgets/panel.hpp"
 #include "nana/gui/widgets/textbox.hpp"
 #include "nana/threads/pool.hpp"
-#include "nstall/Common/Payload.hpp"
+#include "nstall/Common/MetaInfo.hpp"
+#include "nstall/Installer/PayloadExtractor.hpp"
 #include <filesystem>
+#include <memory>
 #include <nana/gui.hpp>
 #include <nana/gui/widgets/button.hpp>
 #include <nana/gui/widgets/label.hpp>
 
 namespace nstall {
 
-struct InstallerException : std::runtime_error {
+struct InstallerFormException : std::runtime_error {
   using std::runtime_error::runtime_error;
 };
 
-class Installer : public nana::form {
+class InstallerForm : public nana::form {
 
 public:
-  explicit Installer(std::filesystem::path argv0);
+  explicit InstallerForm(std::filesystem::path argv0);
 
   void run();
 
@@ -38,10 +40,11 @@ private:
   nana::button destinationButton_;
   nana::threads::pool threadPool_;
 
+  std::unique_ptr<MetaInfo> metaInfo_;
+  std::unique_ptr<PayloadExtractor> extractor_;
+
   std::filesystem::path tmpDirectory_;
   std::filesystem::path argv0_;
-
-  std::unique_ptr<Payload> payload_;
 
   static constexpr auto tmpDirectoryName_{ "nstall_tmp" };
 };

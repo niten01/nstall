@@ -13,6 +13,7 @@ cmake -S . \
 			-G Ninja \
 			-DCMAKE_CXX_COMPILER=clang++ \
 			-DCMAKE_C_COMPILER=clang \
+      -DNSTALL_TEST_BUILD=On \
       -DCMAKE_CXX_FLAGS="-g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping" \
 			-DCMAKE_BUILD_TYPE=Debug \
 			-DCMAKE_EXPORT_COMPILE_COMMANDS=1 
@@ -23,10 +24,10 @@ if [ $# -ne 0 ] ; then
 	echo -e "$HI--------------------------------------$NC\n"
   if [ "$1" == "constructor" ]; then
     set -eux
-    ./build/nstall-constructor
+    ./build/nstall-constructor ${@:2}
   elif [ "$1" == "installer" ]; then
     set -eux
-    ./build/nstall-installer
+    ./build/nstall-installer ${@:2}
   elif [ "$1" == "test" ]; then
     pushd build/tests > /dev/null
     rm -rf coverage

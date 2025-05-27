@@ -1,5 +1,4 @@
 #pragma once
-#include "nstall/Common/Payload.hpp"
 #include <cstddef>
 #include <filesystem>
 #include <fstream>

@@ -10,7 +10,7 @@
 
 namespace nstall {
 
-struct ConstructorException : public std::runtime_error {
+struct ConstructorFormException : public std::runtime_error {
   using std::runtime_error::runtime_error;
 };
 

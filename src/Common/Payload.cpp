@@ -1,15 +1,11 @@
-#include <nstall/Common/Payload.hpp>
+#include <nstall/Common/MetaInfo.hpp>
 
 using namespace nstall;
 
-Payload::Payload(std::string programName, std::vector<std::byte> data)
-  : data_(std::move(data)),
-    programName_(std::move(programName)) {}
-
-auto nstall::Payload::data() const -> const std::vector<std::byte>& {
-  return data_;
+MetaInfo::MetaInfo(std::string programName)
+    : programName_{ std::move(programName) } {
 }
 
-auto nstall::Payload::programName() const -> const std::string& {
+auto nstall::MetaInfo::programName() const -> const std::string& {
   return programName_;
 }

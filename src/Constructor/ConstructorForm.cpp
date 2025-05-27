@@ -1,11 +1,14 @@
 #include "nstall/Constructor/ConstructorForm.hpp"
 #include "nana/basic_types.hpp"
 #include "nana/gui/basis.hpp"
+#include "nana/gui/detail/event_code.hpp"
+#include "nana/gui/detail/general_events.hpp"
 #include "nana/gui/filebox.hpp"
 #include "nana/gui/programming_interface.hpp"
 #include "nana/paint/graphics.hpp"
 #include "nana/threads/pool.hpp"
 #include "nstall/Common/Theme.hpp"
+#include "nstall/Common/Utils.hpp"
 #include "nstall/Constructor/PayloadPacker.hpp"
 #include <algorithm>
 #include <cassert>
@@ -20,28 +23,15 @@
 using namespace nstall;
 namespace fs = std::filesystem;
 
-namespace {
-
-auto findFileByStem(const fs::path& dir, const std::string& name)
-    -> std::optional<fs::path> {
-  for (auto&& entry : fs::directory_iterator{ dir }) {
-    if (entry.is_regular_file() && entry.path().stem().string() == name) {
-      return entry.path();
-    }
-  }
-  return std::nullopt;
-}
-
-} // namespace
-
 ConstructorForm::ConstructorForm(std::filesystem::path resourcesPath)
     : nana::form{ nana::API::make_center(400, 300),
                   nana::appearance{ true, false, true, false, true, false,
                                     false } },
       resourcesPath_{ std::move(resourcesPath) } {
   if (!fs::exists(resourcesPath_) || !fs::is_directory(resourcesPath_)) {
-    throw ConstructorException{ resourcesPath_.string() +
-                                " not found. Check Nstall installation" };
+    throw ConstructorFormException{
+      resourcesPath_.string() + " not found. Check Nstall installation"
+    };
   }
   createForm();
 }
@@ -135,23 +125,27 @@ void ConstructorForm::createForm() {
 
 void nstall::ConstructorForm::validateFields() {
   if (programNameTextBox_.text().empty()) {
-    throw ConstructorException{ "Program name required" };
+    throw ConstructorFormException{ "Program name required" };
   }
 
   if (directoryTextBox_.text().empty()) {
-    throw ConstructorException{ "Program directory required" };
+    throw ConstructorFormException{ "Program directory required" };
   }
 
   if (!fs::exists(directoryTextBox_.text())) {
-    throw ConstructorException{ directoryTextBox_.text() + " not found" };
+    throw ConstructorFormException{ directoryTextBox_.text() +
+                                    " not found" };
   }
 
   if (!fs::is_directory(directoryTextBox_.text())) {
-    throw ConstructorException{ "Program directory must be a directory" };
+    throw ConstructorFormException{
+      "Program directory must be a directory"
+    };
   }
 
   if (fs::is_empty(directoryTextBox_.text())) {
-    throw ConstructorException{ directoryTextBox_.text() + " is empty" };
+    throw ConstructorFormException{ directoryTextBox_.text() +
+                                    " is empty" };
   }
 }
 
@@ -180,9 +174,7 @@ void ConstructorForm::onDirectoryClick() {
 
 void ConstructorForm::onMainClick() {
   std::string programName{ programNameTextBox_.text() };
-  std::string programNameSafe{};
-  std::ranges::replace_copy(
-      programName, std::back_inserter(programNameSafe), ' ', '_');
+  std::string programNameSafe{ utils::safeFilename(programName) };
   fs::path directory{ directoryTextBox_.text() };
 
   nana::filebox fb{ *this, false };
@@ -205,10 +197,10 @@ void ConstructorForm::onMainClick() {
 
   try {
     validateFields();
-    auto carrierPathOpt{ findFileByStem(resourcesPath_,
+    auto carrierPathOpt{ utils::findFileByStem(resourcesPath_,
                                         NSTALL_CARRIER_NAME) };
     if (!carrierPathOpt) {
-      throw ConstructorException{
+      throw ConstructorFormException{
         "Carrier file not found, check Nstall installation"
       };
     }
@@ -221,7 +213,7 @@ void ConstructorForm::onMainClick() {
           title_.caption(std::string{ status });
         });
     payloadPacker.pack();
-  } catch (ConstructorException& e) {
+  } catch (ConstructorFormException& e) {
     nana::msgbox mb{ *this, "Error" };
     mb.icon(nana::msgbox::icon_error);
     mb << e.what();

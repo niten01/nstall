@@ -1,7 +1,9 @@
 #pragma once
-#include "nstall/Common/Payload.hpp"
+#include "nstall/Common/Footer.hpp"
+#include "nstall/Common/MetaInfo.hpp"
 #include <filesystem>
 #include <fstream>
+#include <memory>
 
 namespace nstall {
 
@@ -13,10 +15,12 @@ class PayloadExtractor {
 public:
   explicit PayloadExtractor(const std::filesystem::path& argv0);
 
-  auto extract() -> std::unique_ptr<Payload>;
+  void install(const std::filesystem::path& dstDir);
+  auto verify() -> std::unique_ptr<MetaInfo>;
 
 private:
   std::ifstream stream_;
+  Footer footer_;
 };
 
 } // namespace nstall

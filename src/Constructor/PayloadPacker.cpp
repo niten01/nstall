@@ -1,5 +1,6 @@
 #include "nstall/Constructor/PayloadPacker.hpp"
 #include "nstall/Common/Footer.hpp"
+#include "nstall/Common/Utils.hpp"
 #include "sodium/crypto_generichash.h"
 #include <algorithm>
 #include <array>
@@ -17,7 +18,7 @@ namespace fs = std::filesystem;
 
 namespace {
 
-constexpr size_t chunkSize{ 64UL * 1024 }; // 64KB
+constexpr size_t chunkSize{ 64UL * 1024 }; // 64KiB
 
 void handleMzError(mz_zip_archive& zip, auto status) {
   if (!status) {
@@ -135,7 +136,8 @@ void PayloadPacker::createOffsettedZip() {
 
 void PayloadPacker::injectExecutable() {
   progressCallback_("Packing...", 1.0F);
-  targetStream_.open(targetPath_, std::ios::binary | std::ios::in | std::ios::out);
+  targetStream_.open(targetPath_,
+                     std::ios::binary | std::ios::in | std::ios::out);
   std::ifstream carrierStream{ carrierPath_, std::ios::binary };
   if (!targetStream_ || !carrierStream) {
     throw PayloadPackerException{ "Failed to open binaries" };
@@ -154,13 +156,11 @@ void PayloadPacker::finalizePayload() {
 
 void PayloadPacker::attachFooter() {
   Footer footer{};
-  std::string_view version{ NSTALL_VERSION };
-  footer.magic.fill(std::byte{ 0 });
-  std::ranges::transform(version, footer.magic.begin(), [](auto&& a) {
-    return std::byte{ static_cast<unsigned char>(a) };
-  });
+  utils::fillVersionMagic(footer.magic);
   footer.payloadOffset = carrierSize_;
+  footer.zipOffset     = 0;
   footer.zipSize       = zipSize_;
+  footer.nameOffset    = zipSize_;
   footer.nameSize      = programName_.size();
 
   // write footer except checksum
@@ -171,24 +171,8 @@ void PayloadPacker::attachFooter() {
   auto totalSize{ static_cast<size_t>(targetStream_.tellp()) };
   targetStream_.seekp(0, std::ios::beg);
 
-  crypto_generichash_state state{};
-  crypto_generichash_init(&state, nullptr, 0, footer.checksum.size());
-
-  std::array<std::byte, chunkSize> buffer{};
-  while (totalSize) {
-    auto toRead =
-        static_cast<std::streamsize>(std::min(totalSize, buffer.size()));
-    targetStream_.read(reinterpret_cast<char*>(buffer.data()), // NOLINT
-                       toRead);
-    crypto_generichash_update(
-        &state, reinterpret_cast<unsigned char*>(buffer.data()), // NOLINT
-        toRead);
-    totalSize -= toRead;
-  }
-  crypto_generichash_final(
-      &state,
-      reinterpret_cast<unsigned char*>(footer.checksum.data()), // NOLINT
-      footer.checksum.size());
+  footer.checksum = utils::calcChecksum<footer.checksum.size()>(
+      targetStream_, totalSize);
 
   targetStream_.seekp(0, std::ios::end);
   targetStream_.write(reinterpret_cast<char*>(&footer.checksum), // NOLINT

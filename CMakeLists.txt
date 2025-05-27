@@ -11,11 +11,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(BUILD_SHARED_LIBS OFF)
 option(NSTALL_TEST_BUILD "Build with automatic gui testing" OFF)
 
-if(NSTALL_TEST_BUILD)
-  set(NANA_CMAKE_AUTOMATIC_GUI_TESTING ON)
-endif()
-
-
 include_directories(include)
 
 set(INSTALLER_TARGET ${PROJECT_NAME}-installer)
@@ -25,11 +20,11 @@ set(NSTALL_CARRIER_NAME ${PROJECT_NAME}-carrier)
 
 set(INSTALLER_SOURCES
     src/Installer/InstallerMain.cpp src/Installer/PayloadExtractor.cpp
-    src/Installer/Installer.cpp)
+    src/Installer/InstallerForm.cpp)
 set(CONSTRUCTOR_SOURCES
-  src/Consturctor/ConstructorMain.cpp src/Consturctor/ConstructorForm.cpp
-    src/Consturctor/PayloadPacker.cpp)
-  set(SHARED_SOURCES src/Common/Payload.cpp)
+    src/Constructor/ConstructorMain.cpp src/Constructor/ConstructorForm.cpp
+    src/Constructor/ConstructorCLI.cpp src/Constructor/PayloadPacker.cpp)
+set(SHARED_SOURCES src/Common/Payload.cpp)
 
 add_library(${COMMON_TARGET} ${SHARED_SOURCES})
 target_compile_definitions(
@@ -37,6 +32,10 @@ target_compile_definitions(
   PUBLIC -DNSTALL_VERSION="${NSTALL_VERSION_MAJOR}.${NSTALL_VERSION_MINOR}"
          -DNSTALL_EXE_EXTENSION="${CMAKE_EXECUTABLE_SUFFIX}"
          -DNSTALL_CARRIER_NAME="${NSTALL_CARRIER_NAME}")
+
+if(NSTALL_TEST_BUILD)
+  target_compile_definitions(${COMMON_TARGET} PUBLIC -DNSTALL_TEST_BUILD)
+endif()
 
 # Dependencies
 include(FetchContent)
@@ -50,6 +49,24 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(miniz)
 target_link_libraries(${COMMON_TARGET} PUBLIC miniz)
 
+# cxxopts
+message(STATUS "Fetching dependency: cxxopts")
+FetchContent_Declare(
+  cxxopts
+  GIT_REPOSITORY https://github.com/jarro2783/cxxopts
+  GIT_TAG 44380e5a44706ab7347f400698c703eb2a196202)
+FetchContent_MakeAvailable(cxxopts)
+target_link_libraries(${COMMON_TARGET} PUBLIC cxxopts)
+
+# fmt
+message(STATUS "Fetching dependency: fmt")
+FetchContent_Declare(
+  fmt
+  GIT_REPOSITORY https://github.com/fmtlib/fmt
+  GIT_TAG 0c9fce2ffefecfdce794e1859584e25877b7b592) # 11.0.2
+FetchContent_MakeAvailable(fmt)
+target_link_libraries(${COMMON_TARGET} PUBLIC fmt::fmt)
+
 # nana
 message(STATUS "Fetching dependency: nana")
 FetchContent_Declare(
@@ -60,6 +77,7 @@ FetchContent_MakeAvailable(nana)
 set_target_properties(nana PROPERTIES CXX_STANDARD 17)
 target_link_libraries(${COMMON_TARGET} PUBLIC nana)
 
+# libsodium
 message(STATUS "Fetching dependency: sodium")
 FetchContent_Declare(
   Sodium
