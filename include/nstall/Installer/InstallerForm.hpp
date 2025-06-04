@@ -51,10 +51,7 @@ private:
   std::unique_ptr<MetaInfo> metaInfo_;
   std::unique_ptr<PayloadExtractor> extractor_;
 
-  std::filesystem::path tmpDirectory_;
   std::filesystem::path argv0_;
-
-  static constexpr auto tmpDirectoryName_{ "nstall_tmp" };
 };
 
 } // namespace nstall

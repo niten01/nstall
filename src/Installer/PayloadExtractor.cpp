@@ -60,7 +60,7 @@ void PayloadExtractor::install(const fs::path& dstDir) {
         continue;
       }
 
-      fs::path targetPath{ dstDir.parent_path() / stat.m_filename };
+      fs::path targetPath{ dstDir / stat.m_filename };
       fs::create_directories(targetPath.parent_path());
 
       progressCallback_("Extracting...",

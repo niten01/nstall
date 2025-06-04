@@ -23,8 +23,6 @@ InstallerForm::InstallerForm(fs::path argv0)
     : nana::form{ nana::API::make_center(300, 300),
                   nana::appear::decorate<nana::appear::taskbar>{} },
       argv0_{ std::move(argv0) } {
-  tmpDirectory_ = fs::temp_directory_path() / tmpDirectoryName_;
-
   try {
     extractor_ = std::make_unique<PayloadExtractor>(argv0_);
     metaInfo_  = extractor_->verify();
@@ -152,13 +150,13 @@ void InstallerForm::onMainClick() {
   try {
     verifyFields();
     fs::path destination{ destinationTextBox_.text() };
-    fs::create_directories(destination);
+    fs::create_directories(destination.parent_path());
     extractor_->setProgressCallback(
         [this](auto&& status, float progress) {
           progress_.value(progress * progress_.amount());
           title_.caption(std::string{ status });
         });
-    extractor_->install(destination);
+    extractor_->install(destination.parent_path());
   } catch (const InstallerFormException& e) {
     nana::msgbox mb{ *this, "Error" };
     mb.icon(nana::msgbox::icon_error);

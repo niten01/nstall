@@ -21,7 +21,7 @@ set(NSTALL_CARRIER_NAME ${PROJECT_NAME}-carrier)
 
 set(INSTALLER_SOURCES
     src/Installer/InstallerMain.cpp src/Installer/PayloadExtractor.cpp
-    src/Installer/InstallerForm.cpp)
+    src/Installer/InstallerForm.cpp src/Installer/InstallerCLI.cpp)
 set(CONSTRUCTOR_SOURCES
     src/Constructor/ConstructorMain.cpp src/Constructor/ConstructorForm.cpp
     src/Constructor/ConstructorCLI.cpp src/Constructor/PayloadPacker.cpp)
