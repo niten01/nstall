@@ -21,9 +21,13 @@ public:
       const std::function<void(std::string_view, float)>& cb);
 
 private:
+  /// Create zip of source dir with slot for carrier at the begining
   void createOffsettedZip();
+  /// Write carrier into zip stream
   void injectExecutable();
+  /// Write stuff aside from zip
   void finalizePayload();
+  /// Append footer after payload
   void attachFooter();
 
 private:
@@ -32,9 +36,10 @@ private:
   size_t zipSize_;
   std::filesystem::path carrierPath_;
   std::filesystem::path targetPath_;
-  std::filesystem::path dataDir_;
+  std::filesystem::path sourceDir_;
   std::string programName_;
   std::fstream targetStream_;
+  std::string dirNameStr_; //< name of shipping directory
   std::function<void(std::string_view, float)> progressCallback_;
 };
 

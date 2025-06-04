@@ -7,7 +7,7 @@
       "request": "launch",
       "program": "${workspaceFolder}/build/nstall-constructor",
       "args": [
-        ""
+        "-n", "a", "-d", "src"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

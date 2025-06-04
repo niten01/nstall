@@ -5,9 +5,11 @@
 #include <algorithm>
 #include <array>
 #include <cstddef>
+#include <cstdio>
 #include <filesystem>
 #include <ios>
 #include <iostream>
+// main miniz header should come first :(
 #include <miniz.h>
 #include <miniz_zip.h>
 #include <sodium.h>
@@ -19,19 +21,6 @@ namespace fs = std::filesystem;
 namespace {
 
 constexpr size_t chunkSize{ 64UL * 1024 }; // 64KiB
-
-void handleMzError(mz_zip_archive& zip, auto status) {
-  if (!status) {
-    auto err{ mz_zip_get_last_error(&zip) };
-    std::string mzErrStr = mz_zip_get_error_string(err);
-    if (err == MZ_ZIP_FILE_STAT_FAILED ||
-        err == MZ_ZIP_FILE_OPEN_FAILED) {
-      mzErrStr = "Could not open file, check permissions.\n(zip error: " +
-                 mzErrStr + ")";
-    }
-    throw PayloadPackerException{ mzErrStr };
-  }
-}
 
 /// @todo this might need parallelization
 void writeChunked(std::fstream& dst, std::ifstream& src, size_t len) {
@@ -57,7 +46,7 @@ PayloadPacker::PayloadPacker(std::filesystem::path carrierPath,
     : zipSize_{ 0 },
       carrierPath_{ std::move(carrierPath) },
       targetPath_{ std::move(targetPath) },
-      dataDir_{ std::move(dataDir) },
+      sourceDir_{ std::move(dataDir) },
       programName_{ std::move(programName) },
       progressCallback_{ [](auto&&, auto&&) {
       } } {
@@ -67,12 +56,18 @@ PayloadPacker::PayloadPacker(std::filesystem::path carrierPath,
 
   bytesToCompress_ = 0;
   try {
-    for (auto&& entry : fs::recursive_directory_iterator(dataDir_)) {
+    for (auto&& entry : fs::recursive_directory_iterator(sourceDir_)) {
       if (entry.is_directory()) {
         continue;
       }
       bytesToCompress_ += fs::file_size(entry.path());
     }
+
+    if (sourceDir_.is_relative()) {
+      sourceDir_ = fs::absolute(sourceDir_);
+    }
+
+    dirNameStr_ = sourceDir_.stem();
 
     carrierSize_ = fs::file_size(carrierPath_);
   } catch (fs::filesystem_error& e) {
@@ -89,6 +84,8 @@ void nstall::PayloadPacker::pack() {
     injectExecutable();
     finalizePayload();
     attachFooter();
+    mz_zip_archive zip{};
+    mz_bool status{};
   } catch (fs::filesystem_error& e) {
     throw PayloadPackerException{
       "OS error on payload initialization:\n   " + std::string{ e.what() }
@@ -104,12 +101,13 @@ void PayloadPacker::setProgressCallback(
 void PayloadPacker::createOffsettedZip() {
   mz_zip_archive zip{};
   mz_bool status{};
+
   status =
       mz_zip_writer_init_file(&zip, targetPath_.c_str(), carrierSize_);
-  handleMzError(zip, status);
+  utils::handleMzError<PayloadPackerException>(zip, status);
 
   size_t compressedBytes{ 0 };
-  for (auto&& entry : fs::recursive_directory_iterator(dataDir_)) {
+  for (auto&& entry : fs::recursive_directory_iterator(sourceDir_)) {
     if (entry.is_directory()) {
       continue;
     }
@@ -117,20 +115,28 @@ void PayloadPacker::createOffsettedZip() {
     progressCallback_("Compressing...",
                       static_cast<float>(compressedBytes) /
                           bytesToCompress_); // NOLINT
-    auto relPath = fs::relative(entry.path(), dataDir_.parent_path());
-    status       = mz_zip_writer_add_file(&zip, relPath.c_str(),
-                                          entry.path().c_str(), "", 0,
-                                          MZ_BEST_COMPRESSION);
+    auto relPath{ fs::relative(entry.path(), sourceDir_.parent_path()) };
+    status = mz_zip_writer_add_file(&zip, relPath.c_str(),
+                                    entry.path().c_str(), nullptr, 0,
+                                    MZ_UBER_COMPRESSION);
     compressedBytes += fs::file_size(entry.path());
-    handleMzError(zip, status);
+    utils::handleMzError<PayloadPackerException>(zip, status);
   }
 
   status = mz_zip_writer_finalize_archive(&zip);
-  handleMzError(zip, status);
+  utils::handleMzError<PayloadPackerException>(zip, status);
   status = mz_zip_writer_end(&zip);
-  handleMzError(zip, status);
-
+  utils::handleMzError<PayloadPackerException>(zip, status);
   zipSize_ = fs::file_size(targetPath_) - carrierSize_;
+
+  // status = mz_zip_reader_init_file(&zip, "a_Installer", 0);
+  // utils::handleMzError<PayloadPackerException>(zip, status);
+  // std::cout << mz_zip_reader_get_num_files(&zip);
+  // mz_zip_archive_file_stat stat{};
+  // status = mz_zip_reader_file_stat(&zip, 4, &stat);
+  // utils::handleMzError<PayloadPackerException>(zip, status);
+  // std::cerr << stat.m_filename << ' ' << stat.m_comment << std::endl;
+
   fs::permissions(targetPath_, fs::perms::all); // maybe rwxr-xr-x?
 }
 
@@ -152,6 +158,8 @@ void PayloadPacker::finalizePayload() {
   targetStream_.seekp(0, std::ios::end);
   targetStream_.write(programName_.data(),
                       static_cast<std::streamsize>(programName_.size()));
+  targetStream_.write(dirNameStr_.data(),
+                      static_cast<std::streamsize>(dirNameStr_.size()));
 }
 
 void PayloadPacker::attachFooter() {
@@ -162,6 +170,8 @@ void PayloadPacker::attachFooter() {
   footer.zipSize       = zipSize_;
   footer.nameOffset    = zipSize_;
   footer.nameSize      = programName_.size();
+  footer.dirNameOffset = footer.nameOffset + footer.nameSize;
+  footer.dirNameSize   = dirNameStr_.size();
 
   // write footer except checksum
   targetStream_.seekp(0, std::ios::end);

@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(BUILD_SHARED_LIBS OFF)
+set(CMAKE_CXX_FLAGS "-g")
 option(NSTALL_TEST_BUILD "Build with automatic gui testing" OFF)
 
 include_directories(include)
@@ -24,7 +25,7 @@ set(INSTALLER_SOURCES
 set(CONSTRUCTOR_SOURCES
     src/Constructor/ConstructorMain.cpp src/Constructor/ConstructorForm.cpp
     src/Constructor/ConstructorCLI.cpp src/Constructor/PayloadPacker.cpp)
-set(SHARED_SOURCES src/Common/Payload.cpp)
+  set(SHARED_SOURCES src/Common/MetaInfo.cpp)
 
 add_library(${COMMON_TARGET} ${SHARED_SOURCES})
 target_compile_definitions(
@@ -94,7 +95,7 @@ add_executable(${CONSTRUCTOR_TARGET} ${CONSTRUCTOR_SOURCES})
 target_link_libraries(${CONSTRUCTOR_TARGET} PRIVATE ${COMMON_TARGET})
 
 add_custom_command(
-  TARGET ${CONSTRUCTOR_TARGET}
+  TARGET ${INSTALLER_TARGET}
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory
           $<TARGET_FILE_DIR:${CONSTRUCTOR_TARGET}>/resources/

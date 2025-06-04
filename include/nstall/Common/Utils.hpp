@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <ios>
 #include <iterator>
+#include <miniz.h>
 #include <optional>
 #include <sodium.h>
 #include <string>
@@ -79,4 +80,19 @@ inline auto findFileByStem(const std::filesystem::path& dir,
   }
   return std::nullopt;
 }
+
+template <typename ExceptionT>
+void handleMzError(mz_zip_archive& zip, auto status) {
+  if (!status) {
+    auto err{ mz_zip_get_last_error(&zip) };
+    std::string mzErrStr = mz_zip_get_error_string(err);
+    if (err == MZ_ZIP_FILE_STAT_FAILED ||
+        err == MZ_ZIP_FILE_OPEN_FAILED) {
+      mzErrStr = "Could not open file, check permissions.\n(zip error: " +
+                 mzErrStr + ")";
+    }
+    throw ExceptionT{ "zip: " + mzErrStr };
+  }
+}
+
 } // namespace nstall::utils

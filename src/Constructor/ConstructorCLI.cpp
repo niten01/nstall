@@ -95,8 +95,14 @@ void ConstructorCLI::pack() {
   PayloadPacker packer{ *carrierPathOpt, outFile_, directory_,
                         programName_ };
   packer.setProgressCallback([](std::string_view status, float progress) {
+    static std::string lastStatus{};
+    if (lastStatus != status) {
+      fmt::print("\n");
+    }
+    lastStatus = status;
     fmt::print(fmt::fg(fmt::color::pale_green), "[*] ");
-    fmt::println("{}: {:.2f}%", status, progress * 100.F);
+    fmt::print("{}: {:.2f}%\r", status, progress * 100.F);
   });
   packer.pack();
+  fmt::print("\n");
 }

@@ -3,6 +3,7 @@
 #include "nstall/Common/MetaInfo.hpp"
 #include <filesystem>
 #include <fstream>
+#include <functional>
 #include <memory>
 
 namespace nstall {
@@ -18,9 +19,14 @@ public:
   void install(const std::filesystem::path& dstDir);
   auto verify() -> std::unique_ptr<MetaInfo>;
 
+  void setProgressCallback(
+      const std::function<void(std::string_view, float)>& cb);
+
 private:
+  std::filesystem::path binaryPath_;
   std::ifstream stream_;
   Footer footer_;
+  std::function<void(std::string_view, float)> progressCallback_;
 };
 
 } // namespace nstall

@@ -1,7 +1,6 @@
 #include "nstall/Constructor/ConstructorForm.hpp"
 #include "nana/basic_types.hpp"
 #include "nana/gui/basis.hpp"
-#include "nana/gui/detail/event_code.hpp"
 #include "nana/gui/detail/general_events.hpp"
 #include "nana/gui/filebox.hpp"
 #include "nana/gui/programming_interface.hpp"
@@ -10,15 +9,11 @@
 #include "nstall/Common/Theme.hpp"
 #include "nstall/Common/Utils.hpp"
 #include "nstall/Constructor/PayloadPacker.hpp"
-#include <algorithm>
 #include <cassert>
 #include <filesystem>
 #include <functional>
-#include <iostream>
-#include <iterator>
 #include <nana/gui.hpp>
 #include <optional>
-#include <ranges>
 
 using namespace nstall;
 namespace fs = std::filesystem;
@@ -74,48 +69,50 @@ void ConstructorForm::createForm() {
   <weight=10>
   )");
 
+  theme::Styler styler{};
   title_.create(*this);
-  title_.typeface(
-      nana::paint::font{ "", 20, nana::paint::font::font_style{ 500 } });
+  title_.typeface(nana::paint::font{
+      styler.font(), 20, nana::paint::font::font_style{ 500 } });
   title_.text_align(nana::align::center);
   title_.caption("Create your Nstaller");
-  theme::stylize(title_);
+  styler.stylize(title_);
   mainLayout_["title"] << title_;
 
   programNameLabel_.create(*this);
   programNameLabel_.caption("Program name:");
-  theme::stylize(programNameLabel_);
+  styler.stylize(programNameLabel_);
   programNameTextBox_.create(*this);
   programNameTextBox_.editable(true).multi_lines(false);
-  theme::stylize(programNameTextBox_);
+  styler.stylize(programNameTextBox_);
   mainLayout_["program_name_label"] << programNameLabel_;
   mainLayout_["program_name_textbox"] << programNameTextBox_;
 
   directoryLabel_.create(*this);
   directoryLabel_.caption("Program shipping directory:");
-  theme::stylize(directoryLabel_);
+  styler.stylize(directoryLabel_);
   directoryTextBox_.create(*this);
   directoryTextBox_.editable(true).multi_lines(false);
-  theme::stylize(directoryTextBox_);
+  styler.stylize(directoryTextBox_);
   directoryButton_.create(*this);
   directoryButton_.caption("...");
-  theme::stylize(directoryButton_);
+  styler.stylize(directoryButton_);
   mainLayout_["directory_label"] << directoryLabel_;
   mainLayout_["directory_textbox"] << directoryTextBox_;
   mainLayout_["directory_btn"] << directoryButton_;
 
   mainButton_.create(*this);
   mainButton_.caption("Create");
-  theme::stylize(mainButton_);
+  styler.stylize(mainButton_);
   mainLayout_["main_btn"] << mainButton_;
 
   progress_.create(*this);
   progress_.amount(1000);
   progress_.unknown(false);
+  styler.stylize(progress_);
   mainLayout_["progress"] << progress_;
 
   mainLayout_.collocate();
-  theme::stylize(*this);
+  styler.stylize(*this);
   typeface(nana::paint::font{ "Consolas", 12 });
   caption("Nstaller Constructor");
   show();
@@ -190,15 +187,12 @@ void ConstructorForm::onMainClick() {
   assert(paths.size() == 1);
   const auto& targetPath{ paths[0] };
 
-  auto ogTitle{ title_.caption() };
-  enableAll(false);
-  mainLayout_.field_display("progress", true);
-  mainLayout_.collocate();
+  lockForm(true);
 
   try {
     validateFields();
     auto carrierPathOpt{ utils::findFileByStem(resourcesPath_,
-                                        NSTALL_CARRIER_NAME) };
+                                               NSTALL_CARRIER_NAME) };
     if (!carrierPathOpt) {
       throw ConstructorFormException{
         "Carrier file not found, check Nstall installation"
@@ -213,30 +207,29 @@ void ConstructorForm::onMainClick() {
           title_.caption(std::string{ status });
         });
     payloadPacker.pack();
+    lockForm(false);
   } catch (ConstructorFormException& e) {
     nana::msgbox mb{ *this, "Error" };
     mb.icon(nana::msgbox::icon_error);
     mb << e.what();
     mb.show();
+    lockForm(false);
     return;
   } catch (PayloadPackerException& e) {
     nana::msgbox mb{ *this, "Packing error" };
     mb.icon(nana::msgbox::icon_error);
     mb << "Packing error:\n" << e.what();
     mb.show();
+    lockForm(false);
     return;
   } catch (fs::filesystem_error& e) {
     nana::msgbox mb{ *this, "OS Error" };
     mb.icon(nana::msgbox::icon_error);
     mb << "Filesystem error:\n" << e.what();
     mb.show();
+    lockForm(false);
     return;
   }
-
-  mainLayout_.field_display("main_btn", true);
-  title_.caption(ogTitle);
-  enableAll(true);
-  mainLayout_.collocate();
 
   nana::msgbox mb{ *this, "Success" };
   mb.icon(nana::msgbox::icon_information);
@@ -249,4 +242,19 @@ void ConstructorForm::enableAll(bool enable) {
   directoryTextBox_.enabled(enable);
   directoryButton_.enabled(enable);
   mainButton_.enabled(enable);
+}
+
+void ConstructorForm::lockForm(bool lock) {
+  static std::string ogTitle;
+
+  if (lock) {
+    ogTitle = title_.caption();
+    mainLayout_.field_display("progress", true);
+  } else {
+    mainLayout_.field_display("main_btn", true);
+    title_.caption(ogTitle);
+  }
+
+  enableAll(!lock);
+  mainLayout_.collocate();
 }

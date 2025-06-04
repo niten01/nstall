@@ -2,6 +2,7 @@
 #include "nana/gui/place.hpp"
 #include "nana/gui/widgets/group.hpp"
 #include "nana/gui/widgets/panel.hpp"
+#include "nana/gui/widgets/progress.hpp"
 #include "nana/gui/widgets/textbox.hpp"
 #include "nana/threads/pool.hpp"
 #include "nstall/Common/MetaInfo.hpp"
@@ -28,17 +29,24 @@ public:
 private:
   void createForm();
 
-  void onBackClick();
-  void onNextClick();
+  void enableAll(bool enable);
+  void lockForm(bool lock);
+  void verifyFields();
 
+  void setupCallbacks();
+  void onDestinationButtonClick();
+  void onMainClick();
+
+private:
   nana::place mainLayout_;
   nana::label title_;
   nana::label welcomeLabel_;
   nana::button mainButton_;
+  nana::progress progress_;
   nana::label destinationLabel_;
   nana::textbox destinationTextBox_;
   nana::button destinationButton_;
-  nana::threads::pool threadPool_;
+  nana::threads::pool pool_;
 
   std::unique_ptr<MetaInfo> metaInfo_;
   std::unique_ptr<PayloadExtractor> extractor_;

@@ -22,6 +22,7 @@ public:
 
 private:
   void enableAll(bool enable);
+  void lockForm(bool lock);
 
   void createForm();
   void setupCallbacks();

@@ -1,37 +1,43 @@
 #pragma once
 #include "nana/paint/graphics.hpp"
 #include <nana/gui.hpp>
+#include <string_view>
 
 namespace nstall::theme {
 
-inline nana::color bgColor;
-inline nana::color fgColor;
-
-namespace detail {
-inline bool initialized = false;
-} // namespace detail
-
-inline void initStyle() {
-  bgColor = nana::color{ "#1f1f1f" };
-  fgColor = nana::colors::white;
-
-  nana::paint::font defaultFont{ "Consolas", 12 };
-  defaultFont.set_default();
-}
-
-template <typename T>
-void colorize(T& widget) {
-  if (!detail::initialized) {
-    initStyle();
-    detail::initialized = true;
+class Styler {
+public:
+  Styler()
+      : bgColor_{ "#1f1f1f" },
+        fgColor_{ nana::colors::white } {
+    font("Consolas");
   }
-  widget.bgcolor(bgColor);
-  widget.fgcolor(fgColor);
-}
 
-template <typename T>
-void stylize(T& widget) {
-  colorize(widget);
-}
+  template <typename T>
+  void stylize(T& widget) {
+    colorize(widget);
+  }
+
+  [[nodiscard]] auto font() const -> const std::string& {
+    return font_;
+  }
+  void font(std::string font) {
+    font_ = std::move(font);
+    nana::paint::font defaultFont{ font_, 12 };
+    defaultFont.set_default();
+  }
+
+private:
+  template <typename T>
+  void colorize(T& widget) {
+    widget.bgcolor(bgColor_);
+    widget.fgcolor(fgColor_);
+  }
+
+private:
+  nana::color bgColor_;
+  nana::color fgColor_;
+  std::string font_;
+};
 
 }; // namespace nstall::theme
