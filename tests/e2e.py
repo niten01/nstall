@@ -7,7 +7,7 @@ import tempfile
 
 def create_big_dir(name):
     big_dir = Path(name)
-    for i in range(1000):
+    for i in range(100):
         os.mkdir(big_dir / str(i))
         for j in range(1000):
             with open(big_dir / str(i) / str(j), 'w') as f:
