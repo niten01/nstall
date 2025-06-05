@@ -1,6 +1,7 @@
 build
 *.profraw
 .cache
+compile_commands.json
 
 # testing binaries
 *_Installer

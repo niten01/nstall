@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(BUILD_SHARED_LIBS OFF)
 set(CMAKE_CXX_FLAGS "-g")
-option(NSTALL_TEST_BUILD "Build with automatic gui testing" OFF)
+option(NSTALL_CLI_ONLY "Build with no GUI" OFF)
 
 include_directories(include)
 
@@ -21,11 +21,11 @@ set(NSTALL_CARRIER_NAME ${PROJECT_NAME}-carrier)
 
 set(INSTALLER_SOURCES
     src/Installer/InstallerMain.cpp src/Installer/PayloadExtractor.cpp
-    src/Installer/InstallerForm.cpp src/Installer/InstallerCLI.cpp)
+    src/Installer/InstallerCLI.cpp)
 set(CONSTRUCTOR_SOURCES
-    src/Constructor/ConstructorMain.cpp src/Constructor/ConstructorForm.cpp
-    src/Constructor/ConstructorCLI.cpp src/Constructor/PayloadPacker.cpp)
-  set(SHARED_SOURCES src/Common/MetaInfo.cpp)
+    src/Constructor/ConstructorMain.cpp src/Constructor/ConstructorCLI.cpp
+    src/Constructor/PayloadPacker.cpp)
+set(SHARED_SOURCES src/Common/MetaInfo.cpp)
 
 add_library(${COMMON_TARGET} ${SHARED_SOURCES})
 target_compile_definitions(
@@ -34,8 +34,11 @@ target_compile_definitions(
          -DNSTALL_EXE_EXTENSION="${CMAKE_EXECUTABLE_SUFFIX}"
          -DNSTALL_CARRIER_NAME="${NSTALL_CARRIER_NAME}")
 
-if(NSTALL_TEST_BUILD)
-  target_compile_definitions(${COMMON_TARGET} PUBLIC -DNSTALL_TEST_BUILD)
+if(NSTALL_CLI_ONLY)
+  target_compile_definitions(${COMMON_TARGET} PUBLIC -DNSTALL_CLI_ONLY)
+else()
+  list(APPEND INSTALLER_SOURCES src/Installer/InstallerForm.cpp)
+  list(APPEND CONSTRUCTOR_SOURCES src/Constructor/ConstructorForm.cpp)
 endif()
 
 # Dependencies
@@ -68,15 +71,17 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(fmt)
 target_link_libraries(${COMMON_TARGET} PUBLIC fmt::fmt)
 
-# nana
-message(STATUS "Fetching dependency: nana")
-FetchContent_Declare(
-  nana
-  GIT_REPOSITORY https://github.com/cnjinhao/nana
-  GIT_TAG 96d48b8413866028f5d284ee55b763ceab7aeb1f)
-FetchContent_MakeAvailable(nana)
-set_target_properties(nana PROPERTIES CXX_STANDARD 17)
-target_link_libraries(${COMMON_TARGET} PUBLIC nana)
+if(NOT NSTALL_CLI_ONLY)
+  # nana
+  message(STATUS "Fetching dependency: nana")
+  FetchContent_Declare(
+    nana
+    GIT_REPOSITORY https://github.com/cnjinhao/nana
+    GIT_TAG 96d48b8413866028f5d284ee55b763ceab7aeb1f)
+  FetchContent_MakeAvailable(nana)
+  set_target_properties(nana PROPERTIES CXX_STANDARD 17)
+  target_link_libraries(${COMMON_TARGET} PUBLIC nana)
+endif()
 
 # libsodium
 message(STATUS "Fetching dependency: sodium")
@@ -102,3 +107,5 @@ add_custom_command(
   COMMAND
     ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${INSTALLER_TARGET}>
     $<TARGET_FILE_DIR:${CONSTRUCTOR_TARGET}>/resources/${NSTALL_CARRIER_NAME})
+
+add_subdirectory(tests)
