@@ -44,31 +44,15 @@ jobs:
       id: strings
       shell: bash
       run: |
-        echo "full-build-output-dir=${{ github.workspace }}/full-build" >> "$GITHUB_OUTPUT" &&
         echo "test-build-output-dir=${{ github.workspace }}/test-build" >> "$GITHUB_OUTPUT"
 
-    - name: Install GUI dependencies Linux
-      if: matrix.os == 'ubuntu-latest'
-      run: sudo apt-get install libgl1-mesa-dev libx11-dev 
-
-    - name: Configure CMake for full build
-      run: >
-        cmake -B ${{ steps.strings.outputs.full-build-output-dir }}
-        -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
-        -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
-        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -S ${{ github.workspace }}
-
-    - name: Build full
-      run: cmake --build ${{ steps.strings.outputs.full-build-output-dir }} --config ${{ matrix.build_type }}
-
-    - name: Configure CMake for test build
+    - name: Configure CMake
       run: >
         cmake -B ${{ steps.strings.outputs.test-build-output-dir }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -NSTALL_CLI_ONLY=ON
+        -DNSTALL_CLI_ONLY=ON
         -S ${{ github.workspace }}
 
     - name: Build for tests
