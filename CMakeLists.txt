@@ -9,7 +9,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(BUILD_SHARED_LIBS OFF)
-set(CMAKE_CXX_FLAGS "-g")
 option(NSTALL_CLI_ONLY "Build with no GUI" OFF)
 
 include_directories(include)

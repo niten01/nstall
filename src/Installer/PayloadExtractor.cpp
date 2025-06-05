@@ -67,7 +67,7 @@ void PayloadExtractor::install(const fs::path& dstDir) {
                         static_cast<float>(bytesExtracted) /
                             static_cast<float>(bytesToExtract));
       status = mz_zip_reader_extract_to_file(
-          &zip, i, reinterpret_cast<const char*>(targetPath.c_str()), 0);
+          &zip, i, targetPath.string().c_str(), 0);
       utils::handleMzError<PayloadExtractorException>(zip, status);
       bytesExtracted += stat.m_comp_size;
     }
