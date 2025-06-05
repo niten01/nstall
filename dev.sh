@@ -13,7 +13,6 @@ cmake -S . \
 			-G Ninja \
 			-DCMAKE_CXX_COMPILER=clang++ \
 			-DCMAKE_C_COMPILER=clang \
-      -DNSTALL_TEST_BUILD=On \
       -DCMAKE_CXX_FLAGS="-g -O0 -fsanitize=undefined -Wall -Wextra -pedantic -fprofile-instr-generate -fcoverage-mapping" \
 			-DCMAKE_BUILD_TYPE=Debug \
 			-DCMAKE_EXPORT_COMPILE_COMMANDS=1 

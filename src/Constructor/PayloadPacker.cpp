@@ -67,7 +67,7 @@ PayloadPacker::PayloadPacker(std::filesystem::path carrierPath,
       sourceDir_ = fs::absolute(sourceDir_);
     }
 
-    dirNameStr_ = sourceDir_.stem();
+    dirNameStr_ = sourceDir_.stem().string();
 
     carrierSize_ = fs::file_size(carrierPath_);
   } catch (fs::filesystem_error& e) {
@@ -102,8 +102,8 @@ void PayloadPacker::createOffsettedZip() {
   mz_zip_archive zip{};
   mz_bool status{};
 
-  status =
-      mz_zip_writer_init_file(&zip, targetPath_.c_str(), carrierSize_);
+  status = mz_zip_writer_init_file(&zip, targetPath_.string().c_str(),
+                                   carrierSize_);
   utils::handleMzError<PayloadPackerException>(zip, status);
 
   size_t compressedBytes{ 0 };
@@ -116,9 +116,9 @@ void PayloadPacker::createOffsettedZip() {
                       static_cast<float>(compressedBytes) /
                           bytesToCompress_); // NOLINT
     auto relPath{ fs::relative(entry.path(), sourceDir_.parent_path()) };
-    status = mz_zip_writer_add_file(&zip, relPath.c_str(),
-                                    entry.path().c_str(), nullptr, 0,
-                                    MZ_UBER_COMPRESSION);
+    status = mz_zip_writer_add_file(&zip, relPath.string().c_str(),
+                                    entry.path().string().c_str(),
+                                    nullptr, 0, MZ_UBER_COMPRESSION);
     compressedBytes += fs::file_size(entry.path());
     utils::handleMzError<PayloadPackerException>(zip, status);
   }

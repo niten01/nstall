@@ -1,5 +1,4 @@
 #include "nstall/Constructor/ConstructorCLI.hpp"
-#include "nstall/Constructor/ConstructorForm.hpp"
 #include <cstdio>
 #include <cxxopts.hpp>
 #include <filesystem>
@@ -7,13 +6,19 @@
 #include <fmt/color.h>
 #include <fmt/format.h>
 #include <fmt/ostream.h>
+#ifndef NSTALL_CLI_ONLY
+#include "nstall/Constructor/ConstructorForm.hpp"
+#define FORCE_CLI false
+#else
+#define FORCE_CLI true
+#endif
 
 auto main(int argc, char* argv[]) -> int {
   std::filesystem::path argv0{ argv[0] };
   auto resourcesDir = argv0.parent_path() / "resources";
 
   // CLI mode
-  if (argc > 1) {
+  if (argc > 1 || FORCE_CLI) {
     try {
       nstall::ConstructorCLI constructor{ resourcesDir, argc, argv };
       constructor.run();
@@ -25,6 +30,7 @@ auto main(int argc, char* argv[]) -> int {
     return 0;
   }
 
+#ifndef NSTALL_CLI_ONLY
   try {
     nstall::ConstructorForm constructor{ resourcesDir };
     constructor.run();
@@ -35,4 +41,5 @@ auto main(int argc, char* argv[]) -> int {
     err();
     return 1;
   }
+#endif
 }
