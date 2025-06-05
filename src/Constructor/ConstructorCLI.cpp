@@ -32,7 +32,7 @@ ConstructorCLI::ConstructorCLI(fs::path resourcesDir, int argc,
       ("d,directory", "Program shipping directory, may be positional (required)",
        cxxopts::value<std::string>())
       ("o,out", "Where to put created installer",
-       cxxopts::value<std::string>()->default_value(fs::current_path()));
+       cxxopts::value<std::string>()->default_value(fs::current_path().string()));
   // clang-format on
   cliOptions_.positional_help("<directory>");
   cliOptions_.show_positional_help();

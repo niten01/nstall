@@ -67,7 +67,7 @@ PayloadPacker::PayloadPacker(std::filesystem::path carrierPath,
       sourceDir_ = fs::absolute(sourceDir_);
     }
 
-    dirNameStr_ = sourceDir_.stem();
+    dirNameStr_ = sourceDir_.stem().string();
 
     carrierSize_ = fs::file_size(carrierPath_);
   } catch (fs::filesystem_error& e) {
