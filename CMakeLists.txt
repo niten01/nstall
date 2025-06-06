@@ -75,8 +75,8 @@ if(NOT NSTALL_CLI_ONLY)
   message(STATUS "Fetching dependency: nana")
   FetchContent_Declare(
     nana
-    GIT_REPOSITORY https://github.com/cnjinhao/nana
-    GIT_TAG 96d48b8413866028f5d284ee55b763ceab7aeb1f)
+    GIT_REPOSITORY https://github.com/niten01/nana
+    GIT_TAG 4bbf352bebbf912983319c3d784a9b38aad828fd)
   FetchContent_MakeAvailable(nana)
   set_target_properties(nana PROPERTIES CXX_STANDARD 17)
   target_link_libraries(${COMMON_TARGET} PUBLIC nana)

@@ -8,6 +8,7 @@
 #include <cxxopts.hpp>
 #include <filesystem>
 #include <fmt/color.h>
+#include <iostream>
 
 auto main(int argc, char** argv) -> int {
 
@@ -28,6 +29,7 @@ auto main(int argc, char** argv) -> int {
     nstall::InstallerForm installer{ argv[0] };
     installer.run();
   } catch (const nstall::InstallerFormException& e) {
+    std::cerr << e.what() << std::endl;
     nana::msgbox err{ "Error" };
     err.icon(nana::msgbox::icon_error);
     err << e.what();

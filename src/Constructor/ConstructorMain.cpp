@@ -6,6 +6,7 @@
 #include <fmt/color.h>
 #include <fmt/format.h>
 #include <fmt/ostream.h>
+#include <iostream>
 #ifndef NSTALL_CLI_ONLY
 #include "nstall/Constructor/ConstructorForm.hpp"
 #define FORCE_CLI false
@@ -35,6 +36,7 @@ auto main(int argc, char* argv[]) -> int {
     nstall::ConstructorForm constructor{ resourcesDir };
     constructor.run();
   } catch (const nstall::ConstructorFormException& e) {
+    std::cerr << e.what() << std::endl;
     nana::msgbox err{ "Error" };
     err.icon(nana::msgbox::icon_error);
     err << e.what();
