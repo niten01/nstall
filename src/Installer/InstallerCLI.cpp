@@ -66,7 +66,8 @@ void InstallerCLI::install() {
         }
         lastStatus = status;
         fmt::print(fmt::fg(fmt::color::pale_green), "[*] ");
-        fmt::print("{}: {:.2f}%\r", status, progress * 100.F);
+        fmt::print("{}: {:.2f}%{}\r", status, progress * 100.F,
+                   std::string(5, ' '));
       });
   extractor_->install(destination);
 }
