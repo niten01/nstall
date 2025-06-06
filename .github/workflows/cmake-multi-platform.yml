@@ -67,4 +67,4 @@ jobs:
 
     - name: Test
       working-directory: ${{ steps.strings.outputs.test-build-output-dir }}/tests
-      run: ctest --build-config ${{ matrix.build_type }} --verbose
+      run: ctest --build-config ${{ matrix.build_type }} --output-on-failure
