@@ -1,2 +1,2 @@
 # nstall
-Utility to create minimalistic gui installers
+Utility to create minimalistic gui/cli installers
