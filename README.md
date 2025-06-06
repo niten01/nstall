@@ -4,7 +4,7 @@ A utility for creating minimalistic GUI/CLI installers.
 
 ## Usage
 
-You can download the latest Nstall release from the [Releases](#) page (binaries for Windows and Linux GUI modes are available).
+You can download the latest Nstall release from the [Releases](https://github.com/niten01/nstall/releases/latest) page (binaries for Windows and Linux GUI modes are available).
 The Nstall GUI mode supports Windows and Linux (X11/XWayland).
 The CLI mode can be used on any platform.
 
