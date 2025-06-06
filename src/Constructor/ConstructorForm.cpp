@@ -175,8 +175,8 @@ void ConstructorForm::onMainClick() {
   fs::path directory{ directoryTextBox_.text() };
 
   nana::filebox fb{ *this, false };
-  fb.init_file(fs::current_path() /
-               (programNameSafe + "_Installer" + NSTALL_EXE_EXTENSION));
+  fb.init_file((fs::current_path() /
+               (programNameSafe + "_Installer" + NSTALL_EXE_EXTENSION)).string());
   fb.add_filter("Executable", "*." NSTALL_EXE_EXTENSION);
   fb.allow_multi_select(false);
   auto paths{ fb.show() };
