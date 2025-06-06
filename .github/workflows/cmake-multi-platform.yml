@@ -95,7 +95,7 @@ jobs:
     - name: Test
       if: matrix.os == 'macos-latest'
       run: |
-       sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+       sudo xvfb :99 -ac -screen 0 1024x768x8 &
        ctest --build-config ${{ matrix.build_type }} --output-on-failure
       working-directory: ${{ steps.strings.outputs.build-output-dir }}/tests
 
@@ -107,6 +107,6 @@ jobs:
       if: ${{ matrix.build_type == 'Release' }}
       uses: actions/upload-artifact@v4
       with:
-        name: build_out
+        name: build-out-${{ matrix.os }}
         path: ${{ steps.strings.outputs.build-output-dir }}
         retention-days: 5
