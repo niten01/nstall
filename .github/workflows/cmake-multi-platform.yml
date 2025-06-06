@@ -53,8 +53,14 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/test-build" >> "$GITHUB_OUTPUT"
 
+    - name: Install dependencies (linux)
+      if: matrix.os == 'ubuntu-latest'
+      run: >
+          sudo apt install -y libjpeg8-dev libpng-dev libasound2-dev 
+          alsa-utils alsa-oss libx11-dev libxft-dev libxcursor-dev
+
     - name: Configure CMake (gui)
-      if: matrix.os == 'windows-latest'
+      if: ${{ matrix.os == 'windows-latest' || matrix.os == 'ubuntu-latest' }}
       run: >
         cmake -B ${{ steps.strings.outputs.build-output-dir }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
@@ -63,7 +69,7 @@ jobs:
         -S ${{ github.workspace }}
 
     - name: Configure CMake (cli)
-      if: matrix.os != 'windows-latest'
+      if: matrix.os == 'macos-latest'
       run: >
         cmake -B ${{ steps.strings.outputs.build-output-dir }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
@@ -75,9 +81,16 @@ jobs:
     - name: Build for tests
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
+
     - name: Test
-      working-directory: ${{ steps.strings.outputs.build-output-dir }}/tests
-      run: ctest --build-config ${{ matrix.build_type }} --output-on-failure
+      uses: coactions/setup-xvfb@v1
+      with:
+        run: ctest --build-config ${{ matrix.build_type }} --output-on-failure
+        working-directory: ${{ steps.strings.outputs.build-output-dir }}/tests
+
+    #- name: Test
+    #  working-directory: ${{ steps.strings.outputs.build-output-dir }}/tests
+    #  run: ctest --build-config ${{ matrix.build_type }} --output-on-failure
 
     - name: Create build artifact
       if: ${{ matrix.os == 'windows-latest' && matrix.build_type == 'Release' }}

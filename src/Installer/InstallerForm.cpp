@@ -68,7 +68,7 @@ void InstallerForm::createForm() {
   title_.text_align(nana::align::center);
   title_.typeface(nana::paint::font{
       styler.font(), 20, nana::paint::font::font_style{ 500 } });
-  title_.caption(metaInfo_->programName());
+  title_.caption(metaInfo_->programName() + " Installer");
   styler.stylize(title_);
   mainLayout_["title"] << title_;
 
