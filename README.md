@@ -10,7 +10,7 @@ The CLI mode can be used on any platform.
 
 If you want to use Nstall on a different platform, refer to the **Building from Source** section.
 
-* Using GUI mode is straightforward—just launch `nstall-constructor`, and you're good to go.
+* Using GUI mode is straightforward — just launch `nstall-constructor`, and you're good to go.
 * CLI mode is activated when any command-line arguments are passed to `nstall-constructor` (or if it was built in CLI-only mode).
   Use `-h` to see available options.
 
